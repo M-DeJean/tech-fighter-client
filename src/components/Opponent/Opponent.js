@@ -26,6 +26,8 @@ export default class Opponent extends Component {
             fighter.stamina = fighter.stamina - stm
         }
         if (opponent.health > 0 ) {
+            fighter.health = fighter.health - oppAtk.damage
+            opponent.stamina = opponent.stamina - oppAtk.stamina
         }
         this.context.setHealth(opponent.health)
         this.context.setStamina(fighter.stamina)
