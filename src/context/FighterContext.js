@@ -106,6 +106,12 @@ export class FighterProvider extends Component {
     this.setState({ fighter })
   }
 
+  setOpponentStamina = stamina => {
+    const opponent = this.state.opponent
+    opponent.stamina = stamina
+    this.setState({ opponent })
+  }
+
 
   render() {
     const value = {
@@ -123,6 +129,7 @@ export class FighterProvider extends Component {
       setHealth: this.setHealth,
       setFighterHealth: this.setFighterHealth,
       setStamina: this.setStamina,
+      setOpponentStamina: this.setOpponentStamina,
       resetHealth: this.resetHealth
     }
     return (
