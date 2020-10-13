@@ -1,0 +1,12 @@
+.App {
+    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .App_header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
