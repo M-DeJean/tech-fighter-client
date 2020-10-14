@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:200, 400');
 @import url('https://fonts.googleapis.com/css?family=Lustria');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * {
   box-sizing: border-box;
@@ -8,15 +9,19 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Press Start 2P", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: darkblue;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Lustria";
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Press Start 2P';
   font-weight: 100;
-  color: #222;
+  background: linear-gradient(to bottom, orange 0%, orangered 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 
 p {
