@@ -1,6 +1,25 @@
-.MainMenu{}
+.MainMenu{
+    position: relative;
+    padding: 15px;
+    padding-top: 15px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 80%;
+    height: 50%;
+    border: 2px solid orange;
+    top: 50px;
+    line-height: 35px;
+}
 
 .MainMenu a {
-    color: #444;
     text-decoration: none;
+    background: linear-gradient(to bottom, yellowgreen 0%, lightgreen 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.MainMenu ul {
+    list-style: none
+}
+

@@ -6,10 +6,18 @@ export default class MainMenu extends Component {
     render() {
         return (
             <div className='MainMenu'>
-            <h3>Main Menu</h3>
-            <Link to='/contestants'>
-                FIGHT
-            </Link>
+                <h2>Main Menu</h2>
+                <ul>
+                    <li>
+                        <Link to='/contestants'>
+                            GAME START
+                        </Link>
+                    </li>
+                    <li>
+                        <h4>STATISTICS</h4>
+                    </li>
+
+                </ul>
             </div>
         )
     }
