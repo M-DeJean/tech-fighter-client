@@ -12,6 +12,7 @@ export default class Fighter extends Component {
                     name: {fighter.fighter_name}<br />
                 city: {fighter.hometown}<br />
                 Fighting Style: {fighter.fightingStyle.style_name} <br />
+                Record: {fighter.wins} - {fighter.losses} <br />
                     <Link to={`/contestants/${fighter.id}/fight-page`}>select fighter</Link>
                 </p>
             </ul>

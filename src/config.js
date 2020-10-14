@@ -1,5 +1,5 @@
 export default {
-    API_ENDPOINT: 'http://localhost:8000/api',
+    API_ENDPOINT: 'https://young-garden-84985.herokuapp.com/api',
     TOKEN_KEY: 'techFighter-client-auth-token',
   }
   

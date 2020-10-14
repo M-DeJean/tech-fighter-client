@@ -28,21 +28,6 @@ const FighterApiService = {
                     : res.json()
             )
     },
-    // postFightResults(fighterId){
-    //     return fetch(`${config.API_ENDPOINT}/fighters/login`, {
-    //         method: 'POST',
-    //         headers: {
-    //           'content-type': 'application/json',
-    //         },
-    //         body: JSON.stringify(credentials),
-    //       })
-    //         .then(res =>
-    //           (!res.ok)
-    //             ? res.json().then(e => Promise.reject(e))
-    //             : res.json()
-    //         )
-    //     }
-    // }
     getOpponent(fighterId) {
         return fetch(`${config.API_ENDPOINT}/fighters/random/${fighterId}`, {
             headers: {
@@ -66,7 +51,12 @@ const FighterApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
-    }
+    },
+    // gameOver(fighterid, win) {
+    //     return fetch(`${config.API_ENDPOINT}/fighters/${fighterId}?win=${win}`, {
+    //       method: 'PUT'  
+    //     })
+    // }
 }
 
 export default FighterApiService

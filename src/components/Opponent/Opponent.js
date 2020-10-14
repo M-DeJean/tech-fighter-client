@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import FighterContext from '../../context/FighterContext'
+import { Link } from 'react-router-dom'
+
 import FighterApiService from '../../services/fighter-api-service'
 
 export default class Opponent extends Component {
 
-    static contextType = FighterContext
-
-    componentDidUpdate() {
-        const { opponent, fighter } = this.context
-        if (fighter.health <= 0 || opponent.health <= 0) {
-            alert('GAME OVER')
-            this.context.resetHealth()
-            this.props.history.push('/')
-        }
+    state = {
+        message: null,
+        opponentMessage: null,
+        endGame: false
     }
+
+    static contextType = FighterContext
 
     executeAttack = (e) => {
         const { opponent, fighter } = this.context
@@ -24,48 +23,70 @@ export default class Opponent extends Component {
         if (fighter.health > 0) {
             opponent.health = opponent.health - atk
             fighter.stamina = fighter.stamina - stm
+            this.context.setHealth(opponent.health)
+            this.context.setStamina(fighter.stamina)
+            this.setState({
+                opponentMessage: "Watiting for Opponent",
+                message: `${fighter.fighter_name} landed a ${e.target.name} on ${opponent.fighter_name}`
+            })
+        } else {
+            this.setState({ endGame: true })
         }
-        if (opponent.health > 0 ) {
-            fighter.health = fighter.health - oppAtk.damage
-            opponent.stamina = opponent.stamina - oppAtk.stamina
-        }
-        this.context.setHealth(opponent.health)
-        this.context.setStamina(fighter.stamina)
+        setTimeout(() => {
+            if (opponent.health > 0) {
+                fighter.health = fighter.health - oppAtk.damage
+                opponent.stamina = opponent.stamina - oppAtk.energy_cost
+                this.context.setFighterHealth(fighter.health)
+                this.context.setOpponentStamina(opponent.stamina)
+                this.setState({ opponentMessage: `${opponent.fighter_name} landed a ${oppAtk.attack_name} on ${fighter.fighter_name}` })
+            } else {
+                this.setState({ endGame: true })
+            }
+        }, 2000)
+
+
+
     }
 
     render() {
         const { opponent, fighter } = this.context
-        if (fighter) {
-            return (
-                <div>
-                    <h3>{fighter.fighter_name} VS. {opponent.fighter_name}</h3>
-                    <div className='fighter-status'>
-                        <div className='my-status'>
-                            <h4>You</h4>
-                            <h3>HEALTH: {fighter.health}</h3>
-                            <h3>STAMINA: {fighter.stamina}</h3>
-                        </div>
-                        <div className='enemy-status'>
-                            <h4>Enemy</h4>
-                            <h3>HEALTH: {opponent.health}</h3>
-                            <h3>STAMINA: {opponent.stamina}</h3>
-                        </div>
-                    </div>
+        return (
+            <div>
+                {this.state.message ? (<div className='attack-message'>
+                    <h4>{this.state.message}</h4>
+                    <h4>{this.state.opponentMessage}</h4>
+                </div>) : null}
 
-                    <div className='AttackButton'>
-                        {fighter.fightingStyle.attacks.map(attack =>
-                            <div key={attack.id}>
-                                <button data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
-                                <p> DMG: {attack.damage}</p>
-                                <p> NRG: {attack.energy_cost}</p>
-                            </div>)}
+                {this.state.endGame ? (
+                    <div>
+                        <h4>GAME OVER</h4>
+                        <Link to={'/'}>Results</Link>
+                    </div>) : null}
+
+
+                <h3>{fighter.fighter_name} VS. {opponent.fighter_name}</h3>
+                <div className='fighter-status'>
+                    <div className='my-status'>
+                        <h4>You</h4>
+                        <h3>HEALTH: {fighter.health}</h3>
+                        <h3>STAMINA: {fighter.stamina}</h3>
+                    </div>
+                    <div className='enemy-status'>
+                        <h4>Enemy</h4>
+                        <h3>HEALTH: {opponent.health}</h3>
+                        <h3>STAMINA: {opponent.stamina}</h3>
                     </div>
                 </div>
-            )
-        } else {
-            return (
-                <h3>LOADING...</h3>
-            )
-        }
+
+                <div className='AttackButton'>
+                    {fighter.fightingStyle.attacks.map(attack =>
+                        <div key={attack.id}>
+                            <button disabled={attack.energy_cost >= fighter.stamina} name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
+                            <p> DMG: {attack.damage}</p>
+                            <p> NRG: {attack.energy_cost}</p>
+                        </div>)}
+                </div>
+            </div>
+        )
     }
 }
