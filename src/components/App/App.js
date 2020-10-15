@@ -21,9 +21,9 @@ class App extends React.Component {
   render() {
     return (
       <main className='App'>
-        <header className='App_header'>
+        {/* <header className='App_header'>
           <Header />
-        </header>
+        </header> */}
 
         <Switch>
           <Route

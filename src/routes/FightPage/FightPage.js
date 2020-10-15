@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import FighterContext from '../../context/FighterContext'
 import FighterApiService from '../../services/fighter-api-service'
 import { Section } from '../../components/Utils/Utils'
+import Header from '../../components/Header/Header'
 import Opponent from '../../components/Opponent/Opponent'
 
 export default class FightPage extends Component {
     static contextType = FighterContext
 
     state = {
-        round: 1
+        round: 1,
+        loading: false
     }
 
     newRound = () => {
-        if(this.state.round === 5) {
-            
+        if (this.state.round === 5) {
+
         }
         this.setState({ round: this.state.round + 1 })
     }
@@ -57,13 +59,20 @@ export default class FightPage extends Component {
 
     render() {
         const { error } = this.context
+        const { loading } = this.state
         return (
-            <Section list className='Opponent'>
+            <>
+                <header className='App_header'>
+                    <Header />
+                </header>
                 <h2>Round {this.state.round}</h2>
-                {error
-                    ? <p className='red'>There was an error, try again</p>
-                    : this.renderOpponent()}
-            </Section>
+                {loading ? <p className='loading'>LOADING...</p> :
+                    <Section list className='Opponent'>
+                        {error
+                            ? <p className='red'>There was an error, try again</p>
+                            : this.renderOpponent()}
+                    </Section>}
+            </>
         )
     }
 }

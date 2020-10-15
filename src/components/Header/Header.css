@@ -29,7 +29,7 @@
 
   @media screen and (min-width: 450px) {
     .Header {
-      align-items: baseline;
+      align-items: center;
     }
   
     .Header h1 {

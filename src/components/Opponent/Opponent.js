@@ -26,7 +26,7 @@ export default class Opponent extends Component {
             this.context.setHealth(opponent.health)
             this.context.setStamina(fighter.stamina)
             this.setState({
-                opponentMessage: "Watiting for Opponent",
+                opponentMessage: "...",
                 message: `${fighter.fighter_name} landed a ${e.target.name} on ${opponent.fighter_name}`
             })
         } else {
@@ -57,12 +57,6 @@ export default class Opponent extends Component {
                     <h4>{this.state.opponentMessage}</h4>
                 </div>) : null}
 
-                {this.state.endGame ? (
-                    <div>
-                        <h4>GAME OVER</h4>
-                        <Link to={'/'}>Results</Link>
-                    </div>) : null}
-
 
                 <h3>{fighter.fighter_name} VS. {opponent.fighter_name}</h3>
                 <div className='fighter-status'>
@@ -78,14 +72,19 @@ export default class Opponent extends Component {
                     </div>
                 </div>
 
-                <div className='AttackButton'>
-                    {fighter.fightingStyle.attacks.map(attack =>
-                        <div key={attack.id}>
-                            <button disabled={attack.energy_cost >= fighter.stamina} name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
-                            <p> DMG: {attack.damage}</p>
-                            <p> NRG: {attack.energy_cost}</p>
-                        </div>)}
-                </div>
+                {this.state.endGame ? (
+                    <div>
+                        <h4>GAME OVER</h4>
+                        <Link to={'/'}>Results</Link>
+                    </div>) :
+                    <div className='AttackButton'>
+                        {fighter.fightingStyle.attacks.map(attack =>
+                            <div key={attack.id}>
+                                <button disabled={attack.energy_cost >= fighter.stamina} name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
+                                <p> DMG: {attack.damage}</p>
+                                <p> NRG: {attack.energy_cost}</p>
+                            </div>)}
+                    </div>}
             </div>
         )
     }

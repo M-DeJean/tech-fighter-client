@@ -3,7 +3,8 @@
     padding-top: 20px;
     padding-bottom: 20px;
     max-width: 500px;
-    margin: 0 auto;
+    margin: auto;
+    border: 1px orange solid;
   }
 
   .App_header {

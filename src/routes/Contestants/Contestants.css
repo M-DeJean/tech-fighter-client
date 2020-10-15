@@ -1,5 +1,10 @@
 .Contestants {
-
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+    top: 20%;
 }
 
 .Contestants a {
@@ -15,4 +20,21 @@ button {
     display: inline-block;
     font-size: 16px;
   
+  }
+
+  .loading {
+      text-align: center;
+      position: relative;
+      top: 20%;
+      font-size: 35px;
+  }
+
+  .player-select{
+      color: turquoise;
+      text-align: center;
+      background: linear-gradient(to bottom, white 0%, lightskyblue 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    top: 10%;
   }

@@ -1,0 +1,20 @@
+.fighter {
+    width: 32%;
+    padding: none;
+    margin: none;
+    border: 2px solid lightgray;
+    list-style: none;
+}
+
+.fighter:hover {
+    border: 2px solid yellow;
+}
+
+p {
+    margin: 0px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}

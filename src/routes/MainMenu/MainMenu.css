@@ -1,4 +1,18 @@
+.title {
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+.title h1 {
+    font-weight: 500;
+    font-size: 65px;
+    line-height: 1em;
+
+}
+
 .MainMenu{
+
     position: relative;
     padding: 15px;
     padding-top: 15px;
@@ -6,20 +20,61 @@
     margin-top: 20px;
     text-align: center;
     width: 80%;
-    height: 50%;
-    border: 2px solid orange;
-    top: 50px;
+    height: 40%;
+    top: 70px;
     line-height: 35px;
+}
+
+.MainMenu h2 {
+    font-size: 35px;
+    text-align: center;
 }
 
 .MainMenu a {
     text-decoration: none;
+    background: linear-gradient(to bottom, orange 0%, orangered 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.MainMenu a:hover {
     background: linear-gradient(to bottom, yellowgreen 0%, lightgreen 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .MainMenu ul {
     list-style: none
 }
 
+.MainMenu li::before{
+    content: '. ';
+    color: orangered;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+li {
+    background: linear-gradient(to bottom, orange 0%, orangered 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@media screen and (min-width: 450px) {
+    .MainMenu {
+      align-items: center;
+    }
+  }
+  
+  @media screen and (max-width: 490px) {
+    .title h1 {
+        font-size: 45px;
+    }
+    .MainMenu {
+        border: 2px solid orange;
+    }
+    .MainMenu h2 {
+        font-size: 25px;;
+    }
+  }

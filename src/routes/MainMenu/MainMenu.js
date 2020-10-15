@@ -5,6 +5,11 @@ import './MainMenu.css'
 export default class MainMenu extends Component {
     render() {
         return (
+            <>
+            <div className='title'>
+                <h1>TECH</h1>
+                <h1>FIGHTER</h1>
+            </div>
             <div className='MainMenu'>
                 <h2>Main Menu</h2>
                 <ul>
@@ -14,11 +19,15 @@ export default class MainMenu extends Component {
                         </Link>
                     </li>
                     <li>
-                        <h4>STATISTICS</h4>
+                        STATISTICS
+                    </li>
+                    <li>
+                        HOW TO PLAY
                     </li>
 
                 </ul>
             </div>
+            </>
         )
     }
 }
