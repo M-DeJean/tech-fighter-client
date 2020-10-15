@@ -2,7 +2,7 @@
     height: 40px;
     display: flex;
     align-items: normal;
-    justify-content: space-between;
+    justify-content: center;
   }
   
   .Header h1 {
