@@ -5,6 +5,7 @@
     max-width: 500px;
     margin: auto;
     border: 1px orange solid;
+    overflow: scroll;
   }
 
   .App_header {

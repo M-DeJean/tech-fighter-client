@@ -6,6 +6,7 @@ export default class Fighter extends Component {
 
     render() {
         const { fighter } = this.props
+        console.log(fighter)
         return (
             <li className='fighter'>
                 <p>

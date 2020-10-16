@@ -1,0 +1,43 @@
+
+.statistics{
+    height: 200px;
+}
+.statistics img{
+    border: solid 3px orangered;
+    height: 100px;
+    width: 100px;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-left: 0px;
+}
+
+.stats{
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.info{
+    display: block;
+    justify-content: right;
+    width: 200px;
+    position: relative;
+    bottom: 160px;
+    left: 150px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.name{
+    text-align: left;
+    width: 150px;
+}
+
+@media screen and (min-width: 450px) {
+
+  }
+  
+  @media screen and (max-width: 490px) {
+      .info{
+        left: 150px;
+      }
+  }

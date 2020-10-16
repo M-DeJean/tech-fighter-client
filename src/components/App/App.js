@@ -18,9 +18,6 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
-        {/* <header className='App_header'>
-          <Header />
-        </header> */}
 
         <Switch>
           <Route
