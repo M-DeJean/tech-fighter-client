@@ -29,7 +29,7 @@ export default class MainMenu extends Component {
                             </Link>
                         </li>
                         <li>
-                            <a href="https://www.github.com" target='_blank'>GitHub REPO</a>
+                            <a href="https://github.com/M-DeJean/tech-fighter-client" target='_blank'>GitHub REPO</a>
                                 
                         </li>
 
