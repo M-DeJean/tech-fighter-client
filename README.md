@@ -1,6 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## TechFIghter
 
-## HOW TO PLAY 
+
+
+## How To Play 
 
 TechFighter is a turn-based fighting game inspired by classic arcade games from the 80s and 90s. <br/> There are 6 different characters to choose from, all with their own fighting styles and attacks. Each character has 3 attacks:
 
