@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react'
+import React, { Component } from 'react'
 import FighterContext from '../../context/FighterContext'
 import { Link } from 'react-router-dom'
 import FighterApiService from '../../services/fighter-api-service'
