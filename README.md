@@ -3,6 +3,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 [Live App](https://tech-fighter-client.vercel.app)
 
+[screenshot1](https://i.ibb.co/gy4pKZM/sc1.png)
+[screenshot2](https://i.ibb.co/QHcSVxb/sc2.png)
+[screenshot3](https://i.ibb.co/3TdF2nh/sc4.png)
+
+
 
 ## How To Play 
 
