@@ -13,7 +13,7 @@ body {
   background-color: darkblue;
 }
 
-h1, h2, h3, h4, h5, h6, button {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Press Start 2P';
   font-weight: 100;
   background: linear-gradient(to bottom, orange 0%, orangered 100%);

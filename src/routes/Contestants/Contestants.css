@@ -13,6 +13,9 @@
 }
 
 button {
+    font-family: 'Press Start 2P';
+    font-weight: 100;
+    background-clip: text;
     border: 2px solid orangered;
     padding: 15px;
     margin: 5px;
@@ -22,6 +25,7 @@ button {
     font-size: 16px;
     border-radius: 30%;
     box-shadow: 0 5px black;
+    color: orangered
   }
 
   .loading {
