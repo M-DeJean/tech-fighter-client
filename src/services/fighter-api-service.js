@@ -52,11 +52,11 @@ const FighterApiService = {
                     : res.json()
             )
     },
-    // gameOver(fighterid, win) {
-    //     return fetch(`${config.API_ENDPOINT}/fighters/${fighterId}?win=${win}`, {
-    //       method: 'PUT'  
-    //     })
-    // }
+    gameOver(fighterId, win) {
+        return fetch(`${config.API_ENDPOINT}/fighters/${fighterId}?win=${win}`, {
+          method: 'PATCH'  
+        })
+    }
 }
 
 export default FighterApiService

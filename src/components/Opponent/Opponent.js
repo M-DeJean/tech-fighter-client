@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import FighterContext from '../../context/FighterContext'
 import { Link } from 'react-router-dom'
-
 import FighterApiService from '../../services/fighter-api-service'
+import './Opponent.css'
 
 export default class Opponent extends Component {
 
@@ -18,29 +18,76 @@ export default class Opponent extends Component {
         const { opponent, fighter } = this.context
         const atk = e.target.value
         const stm = e.target.dataset.stamina
-        const oppAtk = opponent.fightingStyle.attacks[Math.floor(Math.random() * opponent.fightingStyle.attacks.length)]
-        console.log('OPPATK', oppAtk)
+        const min = 0;
+        const availableAtks = opponent.fightingStyle.attacks.filter(attack => attack.energy_cost <= opponent.stamina)
+        const oppAtk = availableAtks[Math.floor(Math.random() * availableAtks.length)]
+        console.log(e.target.name, oppAtk)
         if (fighter.health > 0) {
-            opponent.health = opponent.health - atk
-            fighter.stamina = fighter.stamina - stm
-            this.context.setHealth(opponent.health)
-            this.context.setStamina(fighter.stamina)
-            this.setState({
-                opponentMessage: "...",
-                message: `${fighter.fighter_name} landed a ${e.target.name} on ${opponent.fighter_name}`
-            })
+            if (e.target.name === "Defend") {
+                fighter.health += 5
+                fighter.stamina += 20
+                this.context.setFighterHealth(fighter.health)
+                this.context.setStamina(fighter.stamina)
+                this.setState({
+                    message: `${fighter.fighter_name} is defending!`,
+                    opponentMessage: '...'
+                })
+            } else {
+                opponent.health = opponent.health - atk
+                if (opponent.health < min) {
+                    opponent.health = min
+                }
+                fighter.stamina = fighter.stamina - stm
+                if (fighter.stamina < min) {
+                    fighter.stamina = min
+                }
+                this.context.setHealth(opponent.health)
+                this.context.setStamina(fighter.stamina)
+                this.setState({
+                    opponentMessage: "...",
+                    message: `${fighter.fighter_name} landed a ${e.target.name} on ${opponent.fighter_name}!`
+                })
+            }
         } else {
             this.setState({ endGame: true })
+            FighterApiService.gameOver(fighter.id, false)
+            FighterApiService.gameOver(opponent.id, true)
+            return
         }
         setTimeout(() => {
             if (opponent.health > 0) {
-                fighter.health = fighter.health - oppAtk.damage
-                opponent.stamina = opponent.stamina - oppAtk.energy_cost
-                this.context.setFighterHealth(fighter.health)
-                this.context.setOpponentStamina(opponent.stamina)
-                this.setState({ opponentMessage: `${opponent.fighter_name} landed a ${oppAtk.attack_name} on ${fighter.fighter_name}` })
+                if (oppAtk.attack_name === 'Defend') {
+                    opponent.health += 5
+                    opponent.stamina += 20
+                    this.context.setHealth(opponent.health)
+                    this.context.setOpponentStamina(opponent.stamina)
+                    this.setState({
+                        opponentMessage: `${opponent.fighter_name} is defending!`,
+                        message: '...'
+                    })
+
+                } else {
+                    fighter.health = fighter.health - oppAtk.damage
+                    if (fighter.health < min) {
+                        fighter.health = min
+                    }
+                    opponent.stamina = opponent.stamina - oppAtk.energy_cost
+                    if (opponent.stamina < min) {
+                        opponent.stamina = min
+                    }
+                    this.context.setFighterHealth(fighter.health)
+                    this.context.setOpponentStamina(opponent.stamina)
+                    this.setState({
+                        opponentMessage: `${opponent.fighter_name} landed a ${oppAtk.attack_name} on ${fighter.fighter_name}!`,
+                        message: '...'
+                    })
+                }
+
             } else {
                 this.setState({ endGame: true })
+                FighterApiService.gameOver(fighter.id, true)
+                FighterApiService.gameOver(opponent.id, false)
+                return
             }
         }, 2000)
 
@@ -77,12 +124,10 @@ export default class Opponent extends Component {
                         <h4>GAME OVER</h4>
                         <Link to={'/'}>Results</Link>
                     </div>) :
-                    <div className='AttackButton'>
+                    <div className='Attacks'>
                         {fighter.fightingStyle.attacks.map(attack =>
-                            <div key={attack.id}>
-                                <button disabled={attack.energy_cost >= fighter.stamina} name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
-                                <p> DMG: {attack.damage}</p>
-                                <p> NRG: {attack.energy_cost}</p>
+                            <div className='attack-button' key={attack.id}>
+                                <button name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
                             </div>)}
                     </div>}
             </div>

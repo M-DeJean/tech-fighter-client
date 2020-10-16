@@ -1,0 +1,9 @@
+.Attacks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.attack-button {
+
+}

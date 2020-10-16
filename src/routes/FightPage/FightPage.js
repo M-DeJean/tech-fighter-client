@@ -10,7 +10,7 @@ export default class FightPage extends Component {
 
     state = {
         round: 1,
-        loading: false
+        loading: true
     }
 
     newRound = () => {
@@ -41,6 +41,7 @@ export default class FightPage extends Component {
             .then(fightingStyle => {
                 _fighter.fightingStyle = fightingStyle
                 this.context.setFighter(_fighter)
+                this.setState({loading: false})
             })
 
 
@@ -66,6 +67,7 @@ export default class FightPage extends Component {
                     <Header />
                 </header>
                 <h2>Round {this.state.round}</h2>
+
                 {loading ? <p className='loading'>LOADING...</p> :
                     <Section list className='Opponent'>
                         {error
