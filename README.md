@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## HOW TO PLAY 
+
+TechFighter is a turn-based fighting game inspired by classic arcade games from the 80s and 90s. <br/> There are 6 different characters to choose from, all with their own fighting styles and attacks. Each character has 3 attacks:
+
+Light(L) Medium(M) Special(S)
+
+Each attack deals a certain amount of damage and costs a certain amount of stamina. Each fighter also has the option to Defend(D), which restores a small amount of health and stamina. After the player attacks, the computer generated opponent will perform a random attack(or defend) and the match will continue until either the player or computer's health reaches 0.
+
 ## Available Scripts
 
 In the project directory, you can run:
