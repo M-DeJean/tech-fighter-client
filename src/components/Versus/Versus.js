@@ -2,14 +2,15 @@ import React, { Component, PureComponent } from 'react'
 import FighterContext from '../../context/FighterContext'
 import { Link } from 'react-router-dom'
 import FighterApiService from '../../services/fighter-api-service'
-import './Opponent.css'
+import './Versus.css'
 
-export default class Opponent extends Component {
+export default class Versus extends Component {
 
     state = {
         message: null,
         opponentMessage: null,
-        endGame: false
+        iWin: false,
+        iLose: false
     }
 
     static contextType = FighterContext
@@ -49,7 +50,7 @@ export default class Opponent extends Component {
                 })
             }
         } else {
-            this.setState({ endGame: true })
+            this.setState({ iLose: true })
             FighterApiService.gameOver(fighter.id, false)
             FighterApiService.gameOver(opponent.id, true)
             return
@@ -84,7 +85,7 @@ export default class Opponent extends Component {
                 }
 
             } else {
-                this.setState({ endGame: true })
+                this.setState({ iWin: true })
                 FighterApiService.gameOver(fighter.id, true)
                 FighterApiService.gameOver(opponent.id, false)
                 return
@@ -99,37 +100,54 @@ export default class Opponent extends Component {
         const { opponent, fighter } = this.context
         return (
             <div>
-                {this.state.message ? (<div className='attack-message'>
-                    <h4>{this.state.message}</h4>
-                    <h4>{this.state.opponentMessage}</h4>
-                </div>) : null}
-
-
-                <h3>{fighter.fighter_name} VS. {opponent.fighter_name}</h3>
-                <div className='fighter-status'>
-                    <div className='my-status'>
-                        <h4>You</h4>
-                        <h3>HEALTH: {fighter.health}</h3>
-                        <h3>STAMINA: {fighter.stamina}</h3>
-                    </div>
-                    <div className='enemy-status'>
-                        <h4>Enemy</h4>
-                        <h3>HEALTH: {opponent.health}</h3>
-                        <h3>STAMINA: {opponent.stamina}</h3>
-                    </div>
-                </div>
-
-                {this.state.endGame ? (
-                    <div>
-                        <h4>GAME OVER</h4>
-                        <Link to={'/'}>Results</Link>
+                {this.state.iWin ? (
+                    <div className='endgame'>
+                        <h4 >YOU WIN</h4>
+                        <div className='endgame-message'>
+                            <img src={fighter.image}></img>
+                        </div>
+                        <Link to={'/'}>Main Menu</Link> <br/>
+                        <Link to={'/contestants'}>Player Select</Link>
+                    </div>) : this.state.iLose ? (<div className='endgame'>
+                        <h4>YOU LOSE</h4>
+                        <div className='endgame-message'>
+                            <img src={opponent.image}></img>
+                        </div>
+                        <Link to={'/'}>Main Menu</Link> <br/>
+                        <Link to={'/contestants'}>Player Select</Link>
                     </div>) :
-                    <div className='Attacks'>
-                        {fighter.fightingStyle.attacks.map(attack =>
-                            <div className='attack-button' key={attack.id}>
-                                <button name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.attack_name}</button>
-                            </div>)}
-                    </div>}
+                        <>
+
+                            <div className='faceoff'>
+                                <img src={fighter.image}></img> <p>VS.</p> <img src={opponent.image}></img>
+                            </div>
+
+                            <div className='fighter-status'>
+                                <div className='my-status'>
+                                    <h4>{fighter.fighter_name}</h4>
+                                    <h5>LIFE:</h5> <span>{fighter.health}</span>
+                                    <h5>STM:</h5> <span>{fighter.stamina}</span>
+                                </div>
+                                <div className='enemy-status'>
+                                    <h4>{opponent.fighter_name}</h4>
+                                    <h5>LIFE:</h5> <span>{opponent.health}</span>
+                                    <h5>STM:</h5> <span>{opponent.stamina}</span>
+                                </div>
+                            </div>
+
+                            {this.state.message ? (<div className='attack-message'>
+                                <p className='message'>{this.state.message}</p>
+                                <p className='opponent-message'>{this.state.opponentMessage}</p>
+                            </div>) : null}
+
+                            <div className='Attacks'>
+                                <p>Choose an  attack</p>
+                                {fighter.fightingStyle.attacks.map(attack =>
+                                    <div className='attack-button' key={attack.id}>
+                                        <button disabled={fighter.stamina < attack.energy_cost} name={attack.attack_name} data-stamina={attack.energy_cost} value={attack.damage} onClick={this.executeAttack}>{attack.button}</button>
+                                    </div>)}
+                            </div>
+                        </>}
             </div>
         )
     }

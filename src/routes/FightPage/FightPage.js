@@ -3,21 +3,14 @@ import FighterContext from '../../context/FighterContext'
 import FighterApiService from '../../services/fighter-api-service'
 import { Section } from '../../components/Utils/Utils'
 import Header from '../../components/Header/Header'
-import Opponent from '../../components/Opponent/Opponent'
+import Versus from '../../components/Versus/Versus'
+import './FightPage.css'
 
 export default class FightPage extends Component {
     static contextType = FighterContext
 
     state = {
-        round: 1,
         loading: true
-    }
-
-    newRound = () => {
-        if (this.state.round === 5) {
-
-        }
-        this.setState({ round: this.state.round + 1 })
     }
 
     componentDidMount() {
@@ -50,8 +43,7 @@ export default class FightPage extends Component {
 
     renderOpponent() {
         const { opponent, fighter } = this.context
-        return <Opponent
-            newRound={this.newRound}
+        return <Versus
             opponent={opponent}
             fighter={fighter}
             {...this.props}
@@ -66,7 +58,6 @@ export default class FightPage extends Component {
                 <header className='App_header'>
                     <Header />
                 </header>
-                <h2>Round {this.state.round}</h2>
 
                 {loading ? <p className='loading'>LOADING...</p> :
                     <Section list className='Opponent'>

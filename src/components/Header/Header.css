@@ -8,23 +8,12 @@
   .Header h1 {
     margin: 0;
   }
-  
-  .Header a {
-    color: orangered;
-    text-decoration: none;
-  }
-  
-  .Header__tagline--wide {
-    opacity: 0.35;
-    margin-left: 10px;
-  }
-  
-  .Header__tagline--narrow {
-    opacity: 0.35;
-    display: block;
-    text-align: center;
-    display: none;
-    margin-top: 10px;
+
+  .Header h1:hover{
+    background: linear-gradient(to bottom, yellowgreen 0%, lightgreen 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
   }
 
   @media screen and (min-width: 450px) {

@@ -1,0 +1,161 @@
+.Attacks {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 40%;
+    padding: 5px;
+    position: relative;
+    top: 40px;
+}
+
+.Attacks p {
+    text-align: center;
+    padding: 5px;
+}
+.faceoff{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.faceoff p {
+    font-size: 25px;
+}
+.faceoff img {
+    height: 125px;
+    width: 100px;
+    border: orangered 2px solid;
+    margin: 15px;
+}
+
+.attack-button :disabled{
+    opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.attack-message{
+    line-height: 2em;
+    text-align: center;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    background: black;
+    font-size: 10px;
+    padding: 5px 0px;
+    margin-top: 20px;
+}
+
+.fighter-status{
+    display: flex;
+    flex-shrink: 1;
+    justify-content: center;
+}
+
+.my-status{
+    border: orangered solid 3px;
+    text-align: center;
+    flex: 1;
+    padding: 5px;
+    margin: 20px;
+}
+
+.my-status h4{
+    background: linear-gradient(to bottom, white 0%, dodgerblue 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5%;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.my-status h5{
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.my-status span{
+    color: white;
+    font-size: 14px;
+}
+
+.enemy-status{
+    border: orangered solid 3px;
+    text-align: center;
+    flex: 1;
+    padding: 5px;
+    margin: 20px;
+}
+
+.enemy-status h4{
+    background: linear-gradient(to bottom, white 0%, red 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 5%;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.enemy-status h5{
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.enemy-status span{
+    color: white;
+    font-size: 14px;
+}
+
+.endgame{
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: 50px;
+}
+
+.endgame h4{
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+}
+
+.endgame a{
+    text-decoration: none;
+    background: linear-gradient(to bottom, orange 0%, orangered 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 30px;
+}
+
+.endgame a:hover{
+    background: linear-gradient(to bottom, yellowgreen 0%, lightgreen 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.endgame-message{
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: solid 3px orangered
+}
+@media screen and (min-width: 450px) {
+
+  }
+  
+  @media screen and (max-width: 490px) {
+    .Attacks{
+        width: 55%;
+    }
+    .fighter-status{
+        font-size: 12px;
+    }
+    .fighter-status span{
+        font-size: 10px;
+    }
+  }
