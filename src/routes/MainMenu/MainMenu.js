@@ -28,6 +28,10 @@ export default class MainMenu extends Component {
                                 HOW TO PLAY
                             </Link>
                         </li>
+                        <li>
+                            <a href="https://www.github.com" target='_blank'>GitHub REPO</a>
+                                
+                        </li>
 
                     </ul>
                 </div>
