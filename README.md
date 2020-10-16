@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## TechFIghter
 
-[Link](https://tech-fighter-client.vercel.app)
+[Live App](https://tech-fighter-client.vercel.app)
 
 
 ## How To Play 
