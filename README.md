@@ -2,9 +2,9 @@
 
 [Live App](https://tech-fighter-client.vercel.app)
 
-[screenshot1](https://i.ibb.co/gy4pKZM/sc1.png)
-[screenshot2](https://i.ibb.co/QHcSVxb/sc2.png)
-[screenshot3](https://i.ibb.co/3TdF2nh/sc4.png)
+![Screenshot1](https://i.ibb.co/2c1PVtW/Screen-Shot-2020-11-10-at-8-49-09-PM.png)
+![Screenshot2](https://i.ibb.co/CJR6NDy/Screen-Shot-2020-11-10-at-8-58-27-PM.png)
+![Screenshot3](https://i.ibb.co/GT8QYcQ/Screen-Shot-2020-11-10-at-8-58-59-PM.png)
 
 
 
