@@ -1,4 +1,3 @@
-import { isThisWeek } from 'date-fns';
 import React, { Component } from 'react'
 
 const FighterContext = React.createContext({

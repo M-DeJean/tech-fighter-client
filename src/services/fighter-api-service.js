@@ -1,6 +1,5 @@
 import TokenService from './token-service'
 import config from '../config'
-import FighterContext from '../context/FighterContext'
 
 const FighterApiService = {
     getContestants() {

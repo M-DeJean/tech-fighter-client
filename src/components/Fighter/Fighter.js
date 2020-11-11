@@ -6,11 +6,10 @@ export default class Fighter extends Component {
 
     render() {
         const { fighter } = this.props
-        console.log(fighter)
         return (
             <li className='fighter'>
                 <p>
-                    <Link to={`/contestants/${fighter.id}/fight-page`}><img src={fighter.image}></img></Link>
+                    <Link to={`/contestants/${fighter.id}/fight-page`}><img alt={fighter.fighter_name}src={fighter.image}></img></Link>
                 </p>
             </li>
         )

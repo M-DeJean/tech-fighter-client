@@ -22,7 +22,6 @@ export default class Versus extends Component {
         const min = 0;
         const availableAtks = opponent.fightingStyle.attacks.filter(attack => attack.energy_cost <= opponent.stamina)
         const oppAtk = availableAtks[Math.floor(Math.random() * availableAtks.length)]
-        console.log(e.target.name, oppAtk)
         if (fighter.health > 0) {
             if (e.target.name === "Defend") {
                 fighter.health += 5
@@ -104,14 +103,14 @@ export default class Versus extends Component {
                     <div className='endgame'>
                         <h4 >YOU WIN</h4>
                         <div className='endgame-message'>
-                            <img src={fighter.image}></img>
+                            <img alt={fighter.fighter_name} src={fighter.image}></img>
                         </div>
                         <Link to={'/'}>Main Menu</Link> <br/>
                         <Link to={'/contestants'}>Player Select</Link>
                     </div>) : this.state.iLose ? (<div className='endgame'>
                         <h4>YOU LOSE</h4>
                         <div className='endgame-message'>
-                            <img src={opponent.image}></img>
+                            <img alt={opponent.fighter_name} src={opponent.image}></img>
                         </div>
                         <Link to={'/'}>Main Menu</Link> <br/>
                         <Link to={'/contestants'}>Player Select</Link>
@@ -119,7 +118,7 @@ export default class Versus extends Component {
                         <>
 
                             <div className='faceoff'>
-                                <img src={fighter.image}></img> <p>VS.</p> <img src={opponent.image}></img>
+                                <img alt={fighter.fighter_name} src={fighter.image}></img> <p>VS.</p> <img alt={opponent.fighter_name} src={opponent.image}></img>
                             </div>
 
                             <div className='fighter-status'>

@@ -18,31 +18,30 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
-
-        <Switch>
-          <Route
-          exact
-          path={'/'}
-          component={MainMenu} 
-          />
-          <Route
-            exact
-            path={'/contestants'}
-            component={Contestants}
-          />
-          <Route 
-            path={'/contestants/:id/fight-page'}
-            component={FightPage}
-          />
-          <Route 
-            path={'/statistics'}
-            component={Statistics}
-          />
-          <Route 
-            path={'/how-to-play'}
-            component={HowToPlay}
-          />
-        </Switch>
+          <Switch>
+            <Route
+              exact
+              path={'/'}
+              component={MainMenu}
+            />
+            <Route
+              exact
+              path={'/contestants'}
+              component={Contestants}
+            />
+            <Route
+              path={'/contestants/:id/fight-page'}
+              component={FightPage}
+            />
+            <Route
+              path={'/statistics'}
+              component={Statistics}
+            />
+            <Route
+              path={'/how-to-play'}
+              component={HowToPlay}
+            />
+          </Switch>
       </main>
 
     )

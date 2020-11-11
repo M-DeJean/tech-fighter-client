@@ -30,11 +30,10 @@ export default class Statistics extends Component {
     }
 
     renderStatistics() {
-        const { expand } = this.state
         const { contestants = [] } = this.context
         return contestants.map(fighter =>
             <div key={fighter.id} className='statistics'>
-                <div className='name'><img src={fighter.image}></img>
+                <div className='name'><img alt={fighter.fighter_name} src={fighter.image}></img>
                     <h3>{fighter.fighter_name}</h3></div>
 
                 <div className='info'>

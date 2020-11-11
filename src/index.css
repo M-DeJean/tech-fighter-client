@@ -25,3 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 p {
   color: whitesmoke;
 }
+
+html, body, #root, main {
+  min-height: 100%;
+}
+
+html, body, #root{
+  height: 100%;
+  overflow: auto;
+}
