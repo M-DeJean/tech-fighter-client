@@ -14,6 +14,38 @@ Light(L) Medium(M) Special(S)
 
 Each attack deals a certain amount of damage and costs a certain amount of stamina. Each fighter also has the option to Defend(D), which restores a small amount of health and stamina. After the player attacks, the computer generated opponent will perform a random attack(or defend) and the match will continue until either the player or computer's health reaches 0.
 
+## API Documentation
+
+`/api/fighters`
+- GET - Fetches a list of each character
+
+`/api/fighters:fighter_id`
+- GET - Fetches the selected fighter based upon the requested ID
+
+`/api/fighters/random/:fighter_id`
+- GET - Fetches a random character that doesnt match the requested ID
+
+`/api/attacks`
+- GET - Fetches all available attacks
+
+`/api/attacks/:attack_id`
+- GET - Fetches specific attack based upon requested ID
+
+`api/fighting-styles`
+- GET - Fetches all available fighting styles
+
+`api/fighting-styles/:fighting_style_id`
+- GET -Fetches specific style besed upon requested ID
+
+## STACK
+
+* JavaScript
+* Node
+* React
+* Express
+* HTML
+* CSS
+
 ## Available Scripts
 
 In the project directory, you can run:
