@@ -2,11 +2,9 @@
 
 [Live App](https://tech-fighter-client.vercel.app)
 
-![Screenshot1](https://i.ibb.co/2c1PVtW/Screen-Shot-2020-11-10-at-8-49-09-PM.png)
-![Screenshot2](https://i.ibb.co/CJR6NDy/Screen-Shot-2020-11-10-at-8-58-27-PM.png)
-![Screenshot3](https://i.ibb.co/GT8QYcQ/Screen-Shot-2020-11-10-at-8-58-59-PM.png)
-
-
+![Screenshot1](https://i.ibb.co/HFdQQhL/Screen-Shot-2020-11-10-at-8-49-09-PM.png)
+![Screenshot2](https://i.ibb.co/Q6GbDfp/Screen-Shot-2020-11-10-at-8-58-27-PM.png)
+![Screenshot3](https://i.ibb.co/r5WX6yM/Screen-Shot-2020-11-10-at-8-58-59-PM.png)
 
 ## How To Play 
 
